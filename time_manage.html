@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>منصة إدارة الوقت الرقمي</title>
+  <style>
+    /* أنماط عامة */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      direction: rtl;
+    }
+    header {
+      background: #007BFF;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #0056b3;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+      margin-bottom: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #007BFF;
+    }
+    /* لوحة التحكم */
+    .dashboard {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #e9ecef;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 0.5rem;
+      flex: 1 1 200px;
+      text-align: center;
+    }
+    /* نموذج الأهداف والإعدادات */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input, .form-group button {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    /* زر التشغيل */
+    .btn {
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    /* تنسيق الجدول */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>منصة إدارة الوقت الرقمي</h1>
+    <p>مراقبة الاستخدام، تحديد الأهداف، والحصول على مكافآت عند الالتزام</p>
+  </header>
+
+  <nav>
+    <a href="#dashboard">لوحة التحكم</a>
+    <a href="#timer">المؤقت</a>
+    <a href="#usage">سجل الاستخدام</a>
+    <a href="#reminders">التذكيرات</a>
+    <a href="#goals">الأهداف الشخصية</a>
+    <a href="#rewards">التحفيز والمكافآت</a>
+  </nav>
+
+  <!-- لوحة التحكم الرئيسية -->
+  <section id="dashboard">
+    <h2>لوحة التحكم</h2>
+    <div class="dashboard">
+      <div class="card">
+        <h3>الوقت المستهلك اليومي</h3>
+        <p id="dailyUsage">0 دقيقة</p>
+      </div>
+      <div class="card">
+        <h3>الهدف اليومي</h3>
+        <p id="dailyGoal">غير محدد</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- مؤقت عد تنازلي -->
+  <section id="timer">
+    <h2>مؤقت الاستخدام</h2>
+    <div class="form-group">
+      <label for="sessionTime">حدد مدة الجلسة (بالدقائق):</label>
+      <input type="number" id="sessionTime" placeholder="مثال: 30">
+    </div>
+    <button class="btn" onclick="startTimer()">بدء الجلسة</button>
+    <h3 id="timerDisplay">00:00</h3>
+  </section>
+
+  <!-- سجل الاستخدام -->
+  <section id="usage">
+    <h2>سجل الاستخدام</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>التاريخ</th>
+          <th>مدة الاستخدام (دقائق)</th>
+        </tr>
+      </thead>
+      <tbody id="usageTable">
+        <!-- سيتم إضافة البيانات هنا -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- إعدادات التذكير -->
+  <section id="reminders">
+    <h2>إعدادات التذكير</h2>
+    <div class="form-group">
+      <label for="maxTime">الوقت الأقصى المسموح (بالدقائق):</label>
+      <input type="number" id="maxTime" placeholder="مثال: 60">
+    </div>
+    <button class="btn" onclick="saveReminder()">حفظ الإعدادات</button>
+  </section>
+
+  <!-- صفحة الأهداف الشخصية -->
+  <section id="goals">
+    <h2>الأهداف الشخصية</h2>
+    <div class="form-group">
+      <label for="dailyTarget">هدف يومي (دقائق):</label>
+      <input type="number" id="dailyTarget" placeholder="مثال: 120">
+    </div>
+    <button class="btn" onclick="saveGoal()">حفظ الهدف</button>
+    <p>هدفك اليوم: <span id="currentGoal">غير محدد</span></p>
+  </section>
+
+  <!-- نظام التحفيز والمكافآت -->
+  <section id="rewards">
+    <h2>نظام التحفيز</h2>
+    <p>ستظهر مكافآتك عند تحقيق الهدف اليومي!</p>
+    <div id="rewardMessage"></div>
+  </section>
+
+  <script>
+    // تحديث الوقت المستهلك والهدف اليومي من Local Storage عند تحميل الصفحة
+    document.addEventListener("DOMContentLoaded", function(){
+      document.getElementById('dailyUsage').textContent = localStorage.getItem('dailyUsage') || '0 دقيقة';
+      document.getElementById('currentGoal').textContent = localStorage.getItem('dailyGoal') || 'غير محدد';
+      loadUsageLog();
+    });
+
+    let timerInterval;
+    let remainingSeconds;
+
+    // بدء المؤقت
+    function startTimer(){
+      let minutes = parseInt(document.getElementById('sessionTime').value);
+      if(isNaN(minutes) || minutes <= 0){
+        alert("يرجى إدخال مدة صحيحة للجلسة.");
+        return;
+      }
+      remainingSeconds = minutes * 60;
+      updateTimerDisplay();
+
+      // إيقاف أي مؤقت سابق
+      if(timerInterval){
+        clearInterval(timerInterval);
+      }
+      timerInterval = setInterval(() => {
+        remainingSeconds--;
+        updateTimerDisplay();
+        if(remainingSeconds <= 0){
+          clearInterval(timerInterval);
+          alert("لقد انتهى الوقت المحدد للجلسة!");
+          // تحديث سجل الاستخدام وإجمالي الوقت
+          updateUsage(minutes);
+        }
+      }, 1000);
+    }
+
+    // تحديث عرض المؤقت
+    function updateTimerDisplay(){
+      let mins = Math.floor(remainingSeconds / 60);
+      let secs = remainingSeconds % 60;
+      document.getElementById('timerDisplay').textContent =
+        (mins < 10 ? "0" + mins : mins) + ":" + (secs < 10 ? "0" + secs : secs);
+    }
+
+    // حفظ إعدادات التذكير
+    function saveReminder(){
+      let maxTime = document.getElementById('maxTime').value;
+      if(maxTime && maxTime > 0){
+        localStorage.setItem('maxTime', maxTime);
+        alert("تم حفظ الإعدادات بنجاح!");
+      } else {
+        alert("يرجى إدخال وقت أقصى صحيح.");
+      }
+    }
+
+    // حفظ الهدف اليومي
+    function saveGoal(){
+      let goal = document.getElementById('dailyTarget').value;
+      if(goal && goal > 0){
+        localStorage.setItem('dailyGoal', goal + " دقيقة");
+        document.getElementById('currentGoal').textContent = goal + " دقيقة";
+        alert("تم حفظ الهدف اليومي!");
+      } else {
+        alert("يرجى إدخال هدف صحيح.");
+      }
+    }
+
+    // تحديث سجل الاستخدام والوقت المستهلك
+    function updateUsage(sessionMinutes){
+      // تحديث الإجمالي
+      let currentUsage = parseInt(localStorage.getItem('dailyUsage')) || 0;
+      currentUsage += sessionMinutes;
+      localStorage.setItem('dailyUsage', currentUsage + " دقيقة");
+      document.getElementById('dailyUsage').textContent = currentUsage + " دقيقة";
+
+      // إضافة سجل جديد
+      let today = new Date().toLocaleDateString('ar-EG');
+      let usageRecord = { date: today, minutes: sessionMinutes };
+      let usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
+      usageLog.push(usageRecord);
+      localStorage.setItem('usageLog', JSON.stringify(usageLog));
+      loadUsageLog();
+      // تحقق من الهدف اليومي لمكافأة المستخدم
+      let dailyGoal = localStorage.getItem('dailyGoal');
+      if(dailyGoal){
+        let goalMinutes = parseInt(dailyGoal);
+        if(currentUsage >= goalMinutes){
+          document.getElementById('rewardMessage').innerHTML = "<h3>تهانينا! لقد حققت هدفك اليومي وتم تفعيل مكافأتك الافتراضية.</h3>";
+        }
+      }
+    }
+
+    // تحميل سجل الاستخدام من Local Storage وعرضه
+    function loadUsageLog(){
+      let usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
+      let tableBody = document.getElementById('usageTable');
+      tableBody.innerHTML = "";
+      usageLog.forEach(record => {
+        let row = document.createElement("tr");
+        let cellDate = document.createElement("td");
+        cellDate.textContent = record.date;
+        let cellMinutes = document.createElement("td");
+        cellMinutes.textContent = record.minutes;
+        row.appendChild(cellDate);
+        row.appendChild(cellMinutes);
+        tableBody.appendChild(row);
+      });
+    }
+  </script>
+
+</body>
+</html>
