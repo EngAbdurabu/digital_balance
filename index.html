@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>توازن رقمي: عادات صحية لوسائل التواصل الاجتماعي</title>
+  <!-- روابط الخطوط من Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- إضافة مكتبة AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- هيدر مع قائمة تنقل -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar">
+        <ul>
+          <li><a href="#header">الرئيسية</a></li>
+          <li><a href="#tips">النصائح</a></li>
+          <li><a href="#quiz">المسح التفاعلي</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      <h1 class="logo">توازن رقمي</h1>
+      <h2 class="main-headline">اعثري على توازنك: عادات صحية لوسائل التواصل الاجتماعي</h2>
+      <p class="subheadline">نصائح علمية وعملية لمساعدتك على تحقيق توازن صحي مع التكنولوجيا.</p>
+    </div>
+  </header>
+
+  <!-- قسم النصائح على شكل بطاقات -->
+  <section id="tips" class="section">
+    <div class="container">
+      <h2>نصائح عملية وعلمية لإدارة الوقت</h2>
+      <div class="card-container">
+            <div class="card" data-aos="fade-up">
+              <h3>تقسيم الوقت</h3>
+              <p>اعتمدي تقنية Time Blocking التي تؤكد عليها الدراسات؛ حيث يساعد تنظيم يومك بشكل محدد على زيادة الإنتاجية وتقليل التشتت.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+              <h3>الانفصال الرقمي</h3>
+              <p>خصصي فترات منتظمة للابتعاد عن الأجهزة؛ فقد أظهرت الأبحاث أن الانفصال الرقمي يقلل من التوتر ويحسن الصحة النفسية.</p>
+            </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
+          <h3>تنظيم التنبيهات</h3>
+          <p>قللي من التنبيهات والإشعارات غير الضرورية لتقليل التشتيت وزيادة التركيز على المهام الهامة.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <h3>المراقبة الذاتية</h3>
+          <p>استخدمي تطبيقات المراقبة الذاتية لمتابعة استخدامك لوسائل التواصل؛ يساعد ذلك على فهم العادات وتحسينها تدريجيًا.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="250">
+          <h3>تحديد أهداف الاستخدام</h3>
+          <p>ضعي أهدافاً واضحة لاستخدام وسائل التواصل الاجتماعي، مثل الاستفادة من المحتوى التعليمي والتواصل البناء.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم المسح التفاعلي (كما هو موضح سابقاً) -->
+  <section id="quiz" class="section">
+    <div class="container">
+      <h2>ما مدى إدمانك لوسائل التواصل الاجتماعي؟</h2>
+      <form id="quiz-form">
+        <div class="question">
+          <p>كم ساعة تقضين يوميًا على وسائل التواصل الاجتماعي؟</p>
+          <label><input type="radio" name="q1" value="1" required> أقل من ساعتين</label>
+          <label><input type="radio" name="q1" value="2"> من ساعتين إلى 4 ساعات</label>
+          <label><input type="radio" name="q1" value="3"> أكثر من 4 ساعات</label>
+        </div>
+        <div class="question">
+          <p>كم مرة تفحصين هاتفك فور الاستيقاظ؟</p>
+          <label><input type="radio" name="q2" value="3" required> دائمًا</label>
+          <label><input type="radio" name="q2" value="2"> أحيانًا</label>
+          <label><input type="radio" name="q2" value="1"> نادرًا</label>
+        </div>
+        <div class="question">
+          <p>هل تشعرين بالقلق إذا لم تقومي بفحص الإشعارات؟</p>
+          <label><input type="radio" name="q3" value="3" required> نعم</label>
+          <label><input type="radio" name="q3" value="2"> أحيانًا</label>
+          <label><input type="radio" name="q3" value="1"> لا</label>
+        </div>
+        <div class="question">
+          <p>هل تحددين أوقاتًا للانفصال عن وسائل التواصل الاجتماعي؟</p>
+          <label><input type="radio" name="q4" value="1" required> نعم</label>
+          <label><input type="radio" name="q4" value="2"> أحيانًا</label>
+          <label><input type="radio" name="q4" value="3"> لا</label>
+        </div>
+        <div class="question">
+          <p>كم مرة تشاركين في أنشطة خارج الإنترنت؟</p>
+          <label><input type="radio" name="q5" value="1" required> بانتظام</label>
+          <label><input type="radio" name="q5" value="2"> أحيانًا</label>
+          <label><input type="radio" name="q5" value="3"> نادرًا</label>
+        </div>
+        <button type="submit">عرض النتيجة</button>
+      </form>
+      <div id="quiz-result" class="result"></div>
+    </div>
+  </section>
+
+  <!-- قسم الفوتر مع رابط الاتصال -->
+  <footer id="contact">
+    <div class="container">
+      <p>© 2025 توازن رقمي. جميع الحقوق محفوظة.</p>
+      
+    </div>
+  </footer>
+
+  <!-- ربط ملف الجافاسكريبت -->
+  <script src="script.js"></script>
+  <!-- استدعاء مكتبة AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // مدة الحركة
+    once: true    // تفعيل الحركة مرة واحدة فقط لكل عنصر
+  });
+</script>
+
+</body>
+</html>

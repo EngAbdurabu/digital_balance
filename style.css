@@ -1,0 +1,165 @@
+/* الإعدادات الأساسية */
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    background-color: #FFF8F5;
+    color: #333;
+    line-height: 1.6;
+    direction: rtl;
+  }
+  
+  /* الحاوية المركزية */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* تنسيق الهيدر وقائمة التنقل */
+  header {
+    background: linear-gradient(135deg, #FADCD9, #E6E6FA);
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .navbar li {
+    margin: 0 15px;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  .logo {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.5em;
+    margin: 0;
+  }
+  .main-headline {
+    font-size: 2em;
+    margin: 10px 0;
+  }
+  .subheadline {
+    font-size: 1.2em;
+    color: #6c757d;
+  }
+  
+  /* تنسيق الأقسام */
+  .section {
+    padding: 40px 20px;
+  }
+  .section h2 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* تنسيق بطاقات النصائح */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1 1 calc(33% - 40px);
+    min-width: 280px;
+    max-width: 350px;
+    text-align: center;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-family: 'Tajawal', sans-serif;
+    color: #FF6B6B;
+  }
+  /* تأثير hover على البطاقات */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* حركة الخلفية باستخدام CSS Animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+header {
+  background: linear-gradient(135deg, #FADCD9, #E6E6FA);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
+
+  
+  /* تنسيق نموذج المسح */
+  #quiz form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  .question p {
+    margin-bottom: 10px;
+  }
+  .question label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  button[type="submit"] {
+    background: #FF6B6B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button[type="submit"]:hover {
+    background: #ff4d4d;
+  }
+  
+  /* تنسيق الفوتر */
+  footer {
+    background: #E6E6FA;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+  }
+  footer a {
+    color: #FF6B6B;
+    text-decoration: none;
+  }
+  
+  /* التأكد من التوافق مع الأجهزة الصغيرة */
+  @media (max-width: 768px) {
+    .main-headline {
+      font-size: 1.6em;
+    }
+    .logo {
+      font-size: 2em;
+    }
+  }
+  
+  /* سلوك التمرير الناعم */
+  html {
+    scroll-behavior: smooth;
+  }
+  
